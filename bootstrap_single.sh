@@ -17,17 +17,12 @@ fi
 
 # Clone the MultiPool repository if it doesn't exist.
 if [ ! -d $HOME/multipool/yiimp_single ]; then
-	if [ ! -f /usr/bin/git ]; then
-		echo Installing git . . .
-		apt-get -q -q update
-		DEBIAN_FRONTEND=noninteractive apt-get -q -q install -y git < /dev/null
-		echo
-	fi
+	mkdir -p $HOME/multipool/yiimp_single
 
 	echo Downloading MultiPool YiiMP Single Server Installer $TAG. . .
 	git clone \
 		-b $TAG --depth 1 \
-		https://github.com/cryptopool-builders/multipool_yiimp_single.git \
+		https://github.com/cryptopool-builders/multipool_yiimp_single \
 		$HOME/multipool/yiimp_single \
 		< /dev/null 2> /dev/null
 
