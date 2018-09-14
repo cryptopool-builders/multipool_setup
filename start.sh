@@ -13,6 +13,14 @@ sudo cp -r functions.sh /etc/
 # If not, this shows an error and exits.
 source preflight.sh
 
+# Create the STORAGE_USER and STORAGE_ROOT directory if they don't already exist.
+if ! id -u $STORAGE_USER >/dev/null 2>&1; then
+sudo useradd -m $STORAGE_USER
+fi
+if [ ! -d $STORAGE_ROOT ]; then
+sudo mkdir -p $STORAGE_ROOT
+fi
+
 # Ensure Python reads/writes files in UTF-8. If the machine
 # triggers some other locale in Python, like ASCII encoding,
 # Python may not be able to read/write files. This is also
@@ -62,15 +70,7 @@ if [[ $EUID -ne 0 ]]; then
 fi
 
 # Ask the user the intial questions
-source questions.sh
-
-# Create the STORAGE_USER and STORAGE_ROOT directory if they don't already exist.
-if ! id -u $STORAGE_USER >/dev/null 2>&1; then
-sudo useradd -m $STORAGE_USER
-fi
-if [ ! -d $STORAGE_ROOT ]; then
-sudo mkdir -p $STORAGE_ROOT
-fi
+source pre_setup.sh
 
 # Save the global options in /etc/multipool.conf so that standalone
 # tools know where to look for data.
