@@ -53,7 +53,7 @@ bash start.sh
 ' | sudo -E tee /usr/bin/multipool >/dev/null 2>&1
 sudo chmod +x /usr/bin/multipool
 
-sudo cp -r ~/multipool/install /home/$yiimpadmin/
+sudo cp -r ~/multipool /home/$yiimpadmin/
 cd ~
 sudo rm -r multipool
 
