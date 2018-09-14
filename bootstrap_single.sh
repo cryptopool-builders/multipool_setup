@@ -37,4 +37,4 @@ fi
 
 # Start setup script.
 cd $HOME/multipool/yiimp_single
-bash start.sh
+source start.sh
