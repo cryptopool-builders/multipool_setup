@@ -56,7 +56,7 @@ sudo chmod +x /usr/bin/multipool
 sudo cp -r ~/multipool /home/$yiimpadmin/
 cd ~
 sudo rm -r multipool
-
+sudo setfacl -m u:$yiimpadmin:rwx /home/$yiimpadmin/multipool
 
 echo New User is installed... Please reboot system and log in as the new user and type multipool to continue setup...
 exit
