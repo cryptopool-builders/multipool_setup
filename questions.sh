@@ -104,12 +104,3 @@ if [ "$PUBLIC_IPV6" = "auto" ]; then
 # Use a public API to get our public IPv6 address, or fall back to local network configuration.
 PUBLIC_IPV6=$(get_publicip_from_web_service 6 || get_default_privateip 6)
 fi
-
-# Set STORAGE_USER and STORAGE_ROOT to default values (crypto-data and /home/crypto-data), unless
-# we've already got those values from a previous run.
-if [ -z "$STORAGE_USER" ]; then
-STORAGE_USER=$([[ -z "$DEFAULT_STORAGE_USER" ]] && echo "crypto-data" || echo "$DEFAULT_STORAGE_USER")
-fi
-if [ -z "$STORAGE_ROOT" ]; then
-STORAGE_ROOT=$([[ -z "$DEFAULT_STORAGE_ROOT" ]] && echo "/home/$STORAGE_USER" || echo "$DEFAULT_STORAGE_ROOT")
-fi
