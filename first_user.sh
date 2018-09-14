@@ -1,5 +1,5 @@
 source /etc/functions.sh
-cd ~/Multi-Pool-Installer/install
+cd ~/multipool/install
 clear
 message_box "Ultimate Crypto-Server Setup Installer" \
 "Naughty, naughty! You are trying to install this as the root user!
@@ -48,14 +48,14 @@ echo '# yiimp
 ' | sudo -E tee /etc/sudoers.d/$yiimpadmin >/dev/null 2>&1
 
 echo '
-cd ~/Multi-Pool-Installer/install
+cd ~/multipool/install
 bash start.sh
 ' | sudo -E tee /usr/bin/multipool >/dev/null 2>&1
 sudo chmod +x /usr/bin/multipool
 
-sudo cp -r ~/Multi-Pool-Installer /home/$yiimpadmin/
+sudo cp -r ~/multipool/install /home/$yiimpadmin/
 cd ~
-sudo rm -r Multi-Pool-Installer
+sudo rm -r multipool
 
 
 echo New User is installed... Please reboot system and log in as the new user and type multipool to continue setup...
