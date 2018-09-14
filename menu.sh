@@ -18,6 +18,7 @@ fi
 if [ $RESULT = 1 ]
 then
 clear;
+cd $HOME/multipool/install
 source bootstrap_single.sh;
 fi
 
