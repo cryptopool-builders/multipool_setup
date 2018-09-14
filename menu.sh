@@ -1,66 +1,69 @@
 source /etc/functions.sh
 
-RESULT=$(dialog --stdout --title "Ultimate Crypto-Server Setup Installer" --menu "Choose one" -1 60 8 \
+RESULT=$(dialog --stdout --title "Ultimate Crypto-Server Setup Installer" --menu "Choose one" -1 60 9 \
 1 "YiiMP Single Server" \
 2 "YiiMP Multi Server" \
 3 "YiiMP Upgrade" \
-4 NOMP \
-5 MPOS \
-6 CryptoNote-Nodejs \
+4 "NOMP Server" \
+5 "MPOS Server" \
+6 "CryptoNote-Nodejs Server" \
 7 "Faucet Script" \
-8 Exit)
+8 "Install Coin Installer" \
+9 Exit)
 if [ $RESULT = ]
 then
 exit ;
 fi
 
-
 if [ $RESULT = 1 ]
 then
 clear;
-cd yiimp-single
-source start.sh;
+source bootstrap_single.sh;
 fi
 
 if [ $RESULT = 2 ]
 then
 clear;
-cd yiimp_multi
-source start.sh;
+source bootstrap_multi.sh;
 fi
 
 if [ $RESULT = 3 ]
 then
 clear;
-source yiimp_upgrade.sh;
+source bootstrap_yupgrade.sh;
 fi
 
 if [ $RESULT = 4 ]
 then
 clear;
-cd nomp
-source start.sh;
+source bootstrap_nomp.sh;
 fi
 
 if [ $RESULT = 5 ]
 then
 clear;
-source mpos.sh;
+source bootstrap_mpos.sh;
 fi
 
 if [ $RESULT = 6 ]
 then
 clear;
-source cryptonote.sh;
+source bootstrap_cryptonote.sh;
 fi
 
 if [ $RESULT = 7 ]
 then
 clear;
-source faucet.sh;
+source bootstrap_faucet.sh;
 fi
 
 if [ $RESULT = 8 ]
+then
+clear;
+source bootstrap_coin.sh;
+fi
+
+if [ $RESULT = 9 ]
 then
 clear;
 exit;
