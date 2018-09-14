@@ -9,16 +9,8 @@ if [ -z "$TAG" ]; then
 	TAG=v1.0
 fi
 
-# Are we running as root?
-if [[ $EUID -ne 0 ]]; then
-	echo "This script must be run as root. Did you leave out sudo?"
-	exit
-fi
-
 # Clone the MultiPool repository if it doesn't exist.
 if [ ! -d $HOME/multipool/yiimp_single ]; then
-	mkdir -p $HOME/multipool/yiimp_single
-
 	echo Downloading MultiPool YiiMP Single Server Installer $TAG. . .
 	git clone \
 		-b $TAG --depth 1 \
@@ -33,7 +25,7 @@ fi
 cd $HOME/multipool/yiimp_single
 
 # Update it.
-if [ "$TAG" != `git describe` ]; then
+if [ "$TAG" != `git describe --tags` ]; then
 	echo Updating MultiPool YiiMP Single Server Installer to $TAG . . .
 	git fetch --depth 1 --force --prune origin tag $TAG
 	if ! git checkout -q $TAG; then
@@ -45,4 +37,4 @@ fi
 
 # Start setup script.
 cd $HOME/multipool/yiimp_single
-start.sh
+bash start.sh
