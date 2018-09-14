@@ -6,7 +6,7 @@
 #########################################################
 
 if [ -z "$TAG" ]; then
-	TAG=v1.00
+	TAG=v1.0
 fi
 
 # Are we running as root?
@@ -35,7 +35,7 @@ if [ ! -d $HOME/multipool/yiimp_single ]; then
 fi
 
 # Change directory to it.
-cd $HOME/multipool
+cd $HOME/multipool/yiimp_single
 
 # Update it.
 if [ "$TAG" != `git describe` ]; then
