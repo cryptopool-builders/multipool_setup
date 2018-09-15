@@ -52,7 +52,7 @@ sudo apt-get -q -q update
 apt_get_quiet install dialog python3 python3-pip || exit 1
 fi
 # Are we running as root?
-if [[ $EUID -eq 0 ]]; then
+if [[ $EUID -ne 0 ]]; then
 	echo "This script must be run as root. Please re-run like this:"
 	echo
 	echo "bash $0"
