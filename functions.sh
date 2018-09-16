@@ -1,5 +1,7 @@
+#####################################################
 # Source https://mailinabox.email/ https://github.com/mail-in-a-box/mailinabox
 # Updated by cryptopool.builders for crypto use...
+#####################################################
 
 function hide_output {
 		OUTPUT=$(tempfile)
@@ -33,7 +35,7 @@ function spinner
 }
 
 function apt_get_quiet {
-		DEBIAN_FRONTEND=noninteractive hide_output sudo apt-get -yq -o Dpkg::Options::="--force-confold" -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confnew" "$@" & spinner
+		DEBIAN_FRONTEND=noninteractive hide_output sudo apt-get -y -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confnew" "$@" & spinner
 }
 
 function apt_install {

@@ -1,5 +1,7 @@
+#####################################################
 # Source https://mailinabox.email/ https://github.com/mail-in-a-box/mailinabox
 # Updated by cryptopool.builders for crypto use...
+#####################################################
 
 if [ "`lsb_release -d | sed 's/.*:\s*//' | sed 's/16\.04\.[0-9]/16.04/' `" != "Ubuntu 16.04 LTS" ]; then
 echo "Ultimate Crypto-Server Setup Installer only supports being installed on Ubuntu 16.04, sorry. You are running:"

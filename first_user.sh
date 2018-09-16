@@ -1,3 +1,8 @@
+#####################################################
+# Source https://mailinabox.email/ https://github.com/mail-in-a-box/mailinabox
+# Updated by cryptopool.builders for crypto use...
+#####################################################
+
 source /etc/functions.sh
 cd ~/multipool/install
 clear
@@ -58,5 +63,7 @@ cd ~
 sudo rm -r multipool
 sudo setfacl -m u:$yiimpadmin:rwx /home/$yiimpadmin/multipool
 
-echo New User is installed... Please reboot system and log in as the new user and type multipool to continue setup...
+clear
+echo New User is installed...
+echo Please reboot system and log in as the new user and type multipool to continue setup...
 exit
