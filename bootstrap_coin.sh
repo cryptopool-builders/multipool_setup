@@ -14,7 +14,7 @@ if [ ! -d $HOME/multipool/daemon_builder ]; then
 	echo Downloading MultiPool Daemon Builder Installer $TAG. . .
 	git clone \
 		-b $TAG --depth 1 \
-		https://https://github.com/cryptopool-builders/multipool_coin_builder \
+		https://github.com/cryptopool-builders/multipool_coin_builder \
 		$HOME/multipool/daemon_builder \
 		< /dev/null 2> /dev/null
 
