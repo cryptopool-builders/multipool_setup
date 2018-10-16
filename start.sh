@@ -99,8 +99,8 @@ echo
 echo To run this installer anytime simply type, multipool!
 echo Donations for continued support of this script are welcomed at:
 echo
-echo BTC 33XUK3hzZxmAPBgh2JMmMuVVSCAtpK9eQX
-echo BCH qp75x65svsuntmxze38sxqp47h4fqqgfyge5fgegah
-echo ETH 0xF2654882a26C3a226eEFF02E652D3aFFA1Bb682A
-echo LTC MTWpEuaLyj5AnvKxCKFh9fDbgsdNJgaECx
+echo BTC 3DvcaPT3Kio8Hgyw4ZA9y1feNnKZjH7Y21
+echo BCH qrf2fhk2pfka5k649826z4683tuqehaq2sc65nfz3e
+echo ETH 0x6A047e5410f433FDBF32D7fb118B6246E3b7C136
+echo LTC MLS5pfgb7QMqBm3pmBvuJ7eRCRgwLV25Nz
 cd ~
