@@ -13,7 +13,7 @@ RESULT=$(dialog --stdout --title "Ultimate Crypto-Server Setup Installer" --menu
 5 "MPOS Server" \
 6 "CryptoNote-Nodejs Server" \
 7 "Faucet Script" \
-8 "Install Coin Installer" \
+8 "Coin Daemon Installer" \
 9 Exit)
 if [ $RESULT = ]
 then
