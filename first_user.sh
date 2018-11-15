@@ -41,6 +41,22 @@ fi
 fi
 
 clear
+
+dialog --title "Verify Your Answers" \
+--yesno "Please verify your answer before you continue:
+
+New User Name : ${yiimpadmin}
+New User Pass : ${RootPassword}" 15 60
+
+# Get exit status
+# 0 means user hit [yes] button.
+# 1 means user hit [no] button.
+# 255 means user hit [Esc] key.
+response=$?
+case $response in
+
+0)
+clear
 echo Adding new user and password...
 
 sudo adduser $yiimpadmin --gecos "First Last,RoomNumber,WorkPhone,HomePhone" --disabled-password
@@ -67,3 +83,12 @@ clear
 echo New User is installed...
 echo Please reboot system and log in as the new user and type multipool to continue setup...
 exit
+1)
+
+clear
+bash $(basename $0) && exit;;
+
+255)
+
+;;
+esac
