@@ -6,23 +6,23 @@
 #########################################################
 
 if [ -z "$TAG" ]; then
-	TAG=v1.08
+	TAG=v1.09
 fi
 
 # Clone the MultiPool repository if it doesn't exist.
-if [ ! -d $HOME/multipool/nomp ]; then
+if [ ! -d "$HOME"/multipool/nomp ]; then
 	echo Downloading MultiPool NOMP Server Installer $TAG. . .
 	git clone \
 		-b $TAG --depth 1 \
 		https://github.com/cryptopool-builders/multipool_nomp \
-		$HOME/multipool/nomp \
+		"$HOME"/multipool/nomp \
 		< /dev/null 2> /dev/null
 
 	echo
 fi
 
 # Change directory to it.
-cd $HOME/multipool/nomp
+cd "$HOME"/multipool/nomp
 
 # Update it.
 if [ "$TAG" != `git describe --tags` ]; then
@@ -36,5 +36,5 @@ if [ "$TAG" != `git describe --tags` ]; then
 fi
 
 # Start setup script.
-cd $HOME/multipool/nomp
+cd "$HOME"/multipool/nomp
 source start.sh

@@ -39,7 +39,7 @@ if [ -z "$PUBLIC_IP" ]; then
 input_box "Public IP Address" \
 "Enter the public IP address of this machine, as given to you by your ISP.
 \n\nPublic IP address:" \
-$DEFAULT_PUBLIC_IP \
+"$DEFAULT_PUBLIC_IP" \
 PUBLIC_IP
 
 if [ -z "$PUBLIC_IP" ]; then
@@ -69,7 +69,7 @@ input_box "IPv6 Address (Optional)" \
 "Enter the public IPv6 address of this machine, as given to you by your ISP.
 \n\nLeave blank if the machine does not have an IPv6 address.
 \n\nPublic IPv6 address:" \
-$DEFAULT_PUBLIC_IPV6 \
+"$DEFAULT_PUBLIC_IPV6" \
 PUBLIC_IPV6
 
 if [ ! $PUBLIC_IPV6_EXITCODE ]; then

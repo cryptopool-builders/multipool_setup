@@ -6,23 +6,23 @@
 #########################################################
 
 if [ -z "$TAG" ]; then
-	TAG=v1.06
+	TAG=v1.07
 fi
 
 # Clone the MultiPool repository if it doesn't exist.
-if [ ! -d $HOME/multipool/daemon_builder ]; then
+if [ ! -d "$HOME"/multipool/daemon_builder ]; then
 	echo Downloading MultiPool Daemon Builder Installer $TAG. . .
 	git clone \
 		-b $TAG --depth 1 \
 		https://github.com/cryptopool-builders/multipool_coin_builder \
-		$HOME/multipool/daemon_builder \
+		"$HOME"/multipool/daemon_builder \
 		< /dev/null 2> /dev/null
 
 	echo
 fi
 
 # Change directory to it.
-cd $HOME/multipool/daemon_builder
+cd "$HOME"/multipool/daemon_builder
 
 # Update it.
 if [ "$TAG" != `git describe --tags` ]; then
@@ -36,5 +36,5 @@ if [ "$TAG" != `git describe --tags` ]; then
 fi
 
 # Start setup script.
-cd $HOME/multipool/daemon_builder
+cd "$HOME"/multipool/daemon_builder
 source install.sh

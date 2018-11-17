@@ -17,7 +17,7 @@ RESULT=$(dialog --stdout --title "Ultimate Crypto-Server Setup Installer" --menu
 9 Exit)
 if [ $RESULT = ]
 then
-exit ;
+exit;
 fi
 
 if [ $RESULT = 1 ]

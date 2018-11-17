@@ -6,23 +6,23 @@
 #########################################################
 
 if [ -z "$TAG" ]; then
-	TAG=v1.03
+	TAG=v1.04
 fi
 
 # Clone the MultiPool repository if it doesn't exist.
-if [ ! -d $HOME/multipool/yiimp_single ]; then
+if [ ! -d "$HOME"/multipool/yiimp_single ]; then
 	echo Downloading MultiPool YiiMP Single Server Installer $TAG. . .
 	git clone \
 		-b $TAG --depth 1 \
 		https://github.com/cryptopool-builders/multipool_yiimp_single \
-		$HOME/multipool/yiimp_single \
+		"$HOME"/multipool/yiimp_single \
 		< /dev/null 2> /dev/null
 
 	echo
 fi
 
 # Change directory to it.
-cd $HOME/multipool/yiimp_single
+cd "$HOME"/multipool/yiimp_single
 
 # Update it.
 if [ "$TAG" != `git describe --tags` ]; then
@@ -36,5 +36,5 @@ if [ "$TAG" != `git describe --tags` ]; then
 fi
 
 # Start setup script.
-cd $HOME/multipool/yiimp_single
+cd "$HOME"/multipool/yiimp_single
 source start.sh
