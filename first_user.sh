@@ -46,7 +46,7 @@ dialog --title "Verify Your Answers" \
 --yesno "Please verify your answer before you continue:
 
 New User Name : ${yiimpadmin}
-New User Pass : ${RootPassword}" 15 60
+New User Pass : ${RootPassword}" 8 60
 
 # Get exit status
 # 0 means user hit [yes] button.
@@ -80,9 +80,10 @@ sudo rm -r multipool
 sudo setfacl -m u:$yiimpadmin:rwx /home/$yiimpadmin/multipool
 
 clear
-echo New User is installed...
-echo Please reboot system and log in as the new user and type multipool to continue setup...
-exit
+echo "New User is installed..."
+echo "Please reboot system and log in as the new user and type multipool to continue setup..."
+exit 0;;
+
 1)
 
 clear
