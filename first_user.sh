@@ -42,8 +42,8 @@ fi
 
 clear
 
-dialog --title "Verify Your Answers" \
---yesno "Please verify your answer before you continue:
+dialog --title "Verify Your Responses" \
+--yesno "Please verify your answers before you continue:
 
 New User Name : ${yiimpadmin}
 New User Pass : ${RootPassword}" 8 60
