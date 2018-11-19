@@ -25,6 +25,7 @@ fi
 cd "$HOME"/multipool/yiimp_single
 
 # Update it.
+sudo chown -R $USER $HOME/multipool/install/.git/
 if [ "$TAG" != `git describe --tags` ]; then
 	echo Updating MultiPool YiiMP Single Server Installer to $TAG . . .
 	git fetch --depth 1 --force --prune origin tag $TAG

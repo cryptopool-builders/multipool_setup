@@ -25,6 +25,7 @@ fi
 cd "$HOME"/multipool/nomp
 
 # Update it.
+sudo chown -R $USER $HOME/multipool/install/.git/
 if [ "$TAG" != `git describe --tags` ]; then
 	echo Updating MultiPool NOMP Server Installer to $TAG . . .
 	git fetch --depth 1 --force --prune origin tag $TAG
