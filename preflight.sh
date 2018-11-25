@@ -27,6 +27,40 @@ echo "WARNING: Your Crypto-Pool Server has less than 4 GB of memory."
 echo " It might run unreliably when under heavy load."
 fi
 
+# Check swap
+echo Checking if swap space is needed and if so creating...
+SWAP_MOUNTED=$(cat /proc/swaps | tail -n+2)
+SWAP_IN_FSTAB=$(grep "swap" /etc/fstab)
+ROOT_IS_BTRFS=$(grep "\/ .*btrfs" /proc/mounts)
+TOTAL_PHYSICAL_MEM=$(head -n 1 /proc/meminfo | awk '{print $2}')
+AVAILABLE_DISK_SPACE=$(df / --output=avail | tail -n 1)
+if
+[ -z "$SWAP_MOUNTED" ] &&
+[ -z "$SWAP_IN_FSTAB" ] &&
+[ ! -e /swapfile ] &&
+[ -z "$ROOT_IS_BTRFS" ] &&
+[ $TOTAL_PHYSICAL_MEM -lt 19000000 ] &&
+[ $AVAILABLE_DISK_SPACE -gt 5242880 ]
+then
+echo "Adding a swap file to the system..."
+
+# Allocate and activate the swap file. Allocate in 1KB chuncks
+# doing it in one go, could fail on low memory systems
+dd if=/dev/zero of=/swapfile bs=2048 count=$[1024*1024] status=none
+if [ -e /swapfile ]; then
+chmod 600 /swapfile
+hide_output mkswap /swapfile
+swapon /swapfile
+fi
+
+# Check if swap is mounted then activate on boot
+if swapon -s | grep -q "\/swapfile"; then
+echo "/swapfile  none swap sw 0  0" >> /etc/fstab
+else
+echo "ERROR: Swap allocation failed"
+fi
+fi
+
 ARCHITECTURE=$(uname -m)
 if [ "$ARCHITECTURE" != "x86_64" ]; then
 if [ -z "$ARM" ]; then
