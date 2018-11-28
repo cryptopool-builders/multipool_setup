@@ -49,10 +49,9 @@ fi
 #check for user
 echo Installing needed packages for setup to continue...
 
-if [ ! -f /usr/bin/dialog ] || [ ! -f /usr/bin/python3 ] || [ ! -f /usr/bin/pip3 ]; then
 sudo apt-get -q -q update
-apt_get_quiet install dialog python3 python3-pip || exit 1
-fi
+apt_get_quiet install dialog python3 python3-pip acl nano git || exit 1
+
 # Are we running as root?
 if [[ $EUID -ne 0 ]]; then
 	echo "This script must be run as root. Please re-run like this:"
