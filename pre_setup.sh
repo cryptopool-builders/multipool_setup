@@ -7,9 +7,10 @@ source /etc/functions.sh
 clear
 echo Checking for required setup files...
 
-if [ ! -f /usr/bin/dialog ] || [ ! -f /usr/bin/python3 ] || [ ! -f /usr/bin/pip3 ]; then
+# we double and triple check for required files
+if [ ! -f /usr/bin/dialog ] || [ ! -f /usr/bin/python3 ] || [ ! -f /usr/bin/pip3 ] [ ! -f /usr/bin/acl ] [ ! -f /usr/bin/nano ]; then
 sudo apt-get -q -q update
-apt_get_quiet install dialog python3 python3-pip acl || exit 1
+apt_get_quiet install dialog python3 python3-pip acl nano || exit 1
 fi
 
 message_box "Ultimate Crypto-Server Setup Installer" \
