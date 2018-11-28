@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-set -o nounset
+
 set -o errexit
 #####################################################
 # This is the entry point for configuring the system.
