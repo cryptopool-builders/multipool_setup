@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-set -o errexit
+
 #####################################################
 # This is the entry point for configuring the system.
 # Source https://mailinabox.email/ https://github.com/mail-in-a-box/mailinabox

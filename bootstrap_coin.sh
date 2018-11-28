@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-set -o errexit
+
 #########################################################
 # Source https://mailinabox.email/ https://github.com/mail-in-a-box/mailinabox
 # Updated by cryptopool.builders for crypto use...
@@ -8,7 +8,7 @@ set -o errexit
 #########################################################
 
 if [ -z "{$TAG}" ]; then
-	TAG=v1.16
+	TAG=v1.17
 fi
 
 # Clone the MultiPool repository if it doesn't exist.
