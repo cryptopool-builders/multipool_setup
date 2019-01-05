@@ -5,10 +5,10 @@
 
 source /etc/functions.sh
 
-RESULT=$(dialog --stdout --title "Ultimate Crypto-Server Setup Installer v1.20" --menu "Choose one" -1 60 9 \
+RESULT=$(dialog --stdout --title "Ultimate Crypto-Server Setup Installer v1.38" --menu "Choose one" -1 60 9 \
 1 "YiiMP Single Server" \
 2 "YiiMP Multi Server" \
-3 "YiiMP Upgrade - Coming Soon" \
+3 "YiiMP Stratum Upgrade" \
 4 "NOMP Server" \
 5 "MPOS Server - Coming Soon" \
 6 "CryptoNote-Nodejs Server - Coming Soon" \
@@ -38,7 +38,7 @@ if [ $RESULT = 3 ]
 then
 clear;
 cd $HOME/multipool/install
-exit 0;
+source bootstrap_upgrade.sh;
 fi
 
 if [ $RESULT = 4 ]
