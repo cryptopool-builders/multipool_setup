@@ -5,7 +5,7 @@
 
 source /etc/functions.sh
 
-RESULT=$(dialog --stdout --title "Ultimate Crypto-Server Setup Installer v1.44" --menu "Choose one" -1 60 9 \
+RESULT=$(dialog --stdout --title "Ultimate Crypto-Server Setup Installer v1.45" --menu "Choose one" -1 60 9 \
 1 "YiiMP Single Server" \
 2 "YiiMP Multi Server" \
 3 "YiiMP Stratum Upgrade" \
