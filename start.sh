@@ -52,7 +52,7 @@ fi
 echo Installing needed packages for setup to continue...
 
 sudo apt-get -q -q update
-apt_get_quiet install dialog python3 python3-pip acl nano git || exit 1
+apt_get_quiet install dialog python3 python3-pip acl nano git apt-transport-https || exit 1
 
 # Are we running as root?
 if [[ $EUID -ne 0 ]]; then
