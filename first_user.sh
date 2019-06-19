@@ -57,7 +57,7 @@ case $response in
 
 0)
 clear
-echo Adding new user and password...
+echo -e "$CYAN Adding new user and password...$COL_RESET"
 
 sudo adduser ${yiimpadmin} --gecos "First Last,RoomNumber,WorkPhone,HomePhone" --disabled-password
 echo -e "${RootPassword}\n${RootPassword}" | passwd ${yiimpadmin}
@@ -81,7 +81,7 @@ sudo setfacl -m u:${yiimpadmin}:rwx /home/${yiimpadmin}/multipool
 
 clear
 echo "New User is installed..."
-echo -e "$RED Please reboot system and log in as the new user and type multipool to continue setup...$COL_RESET"
+echo -e "$RED Please reboot system and log in as the new user and type$COL_RESET $GREEN multipool$COL_RESET $RED to continue setup...$COL_RESET"
 exit 0;;
 
 1)
