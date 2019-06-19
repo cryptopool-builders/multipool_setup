@@ -57,7 +57,7 @@ case $response in
 
 0)
 clear
-echo -e "$CYAN Adding new user and password...$COL_RESET"
+echo -e " Adding new user and password...$COL_RESET"
 
 sudo adduser ${yiimpadmin} --gecos "First Last,RoomNumber,WorkPhone,HomePhone" --disabled-password
 echo -e "${RootPassword}\n${RootPassword}" | passwd ${yiimpadmin}
