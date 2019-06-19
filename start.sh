@@ -49,14 +49,14 @@ FIRST_TIME_SETUP=1
 fi
 
 #check for user
-echo Installing needed packages for setup to continue...
+echo "$YELLOW Installing needed packages for setup to continue...$COL_RESET"
 
 sudo apt-get -q -q update
 apt_get_quiet install dialog python3 python3-pip acl nano git apt-transport-https || exit 1
 
 # Are we running as root?
 if [[ $EUID -ne 0 ]]; then
-	echo "This script must be run as root. Please re-run like this:"
+	echo "$RED This script must be run as root. Please re-run like this: $COL_RESET"
 	echo
 	echo "bash $0"
 	echo
