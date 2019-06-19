@@ -81,7 +81,7 @@ sudo setfacl -m u:${yiimpadmin}:rwx /home/${yiimpadmin}/multipool
 
 clear
 echo "New User is installed..."
-echo "Please reboot system and log in as the new user and type multipool to continue setup..."
+echo -e "$RED Please reboot system and log in as the new user and type multipool to continue setup...$COL_RESET"
 exit 0;;
 
 1)
