@@ -40,6 +40,20 @@ clear
   fi
   fi
 
+  if [ -z "${ssh_key}" ]; then
+  DEFAULT_ssh_key=publickey
+  input_box "Please open PuTTY Key Generator on your local machine and generate a new public key." \
+  "Public key.
+  \n\nPublic Key:" \
+  ${DEFAULT_ssh_key} \
+  ssh_key
+
+  if [ -z "${ssh_key}" ]; then
+  # user hit ESC/cancel
+  exit
+  fi
+  fi
+
 # create random user password
 RootPassword=$(openssl rand -base64 8 | tr -d "=+/")
 
@@ -50,12 +64,6 @@ echo -e "Adding new user and setting SSH key...$COL_RESET"
 sudo adduser ${yiimpadmin} --gecos "First Last,RoomNumber,WorkPhone,HomePhone" --disabled-password
 echo -e "${RootPassword}\n${RootPassword}" | passwd ${yiimpadmin}
 sudo usermod -aG sudo ${yiimpadmin}
-
-if [[ -z "$ssh_key" ]]; then
-clear
-echo -e "Please open PuTTY Key Generator on your local machine and generate a new public key."
-read -e -p "Paste your generated key : " ssh_key
-fi
 
 mkdir -p /home/${yiimpadmin}/.ssh
 touch /home/${yiimpadmin}/.ssh/authorized_keys
