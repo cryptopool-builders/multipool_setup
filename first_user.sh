@@ -25,6 +25,9 @@ esac
 
 if [[ ("$UsingSSH" == "yes") ]]; then
 
+echo -e "Please open PuTTY Key Generator on your local machine and generate a new public key."
+read -e -p "Paste your generated key : " ssh_key
+
   if [ -z "${yiimpadmin}" ]; then
   DEFAULT_yiimpadmin=yiimpadmin
   input_box "New Account Name" \
@@ -44,9 +47,7 @@ RootPassword=$(openssl rand -base64 8 | tr -d "=+/")
 
 # prompt for key.
 clear
-echo -e "Please open PuTTY Key Generator on your local machine and generate a new public key."
-read -e -p "Paste your generated key : " ssh_key
-echo -e " Adding new user and setting SSH key...$COL_RESET"
+echo -e "Adding new user and setting SSH key...$COL_RESET"
 
 sudo adduser ${yiimpadmin} --gecos "First Last,RoomNumber,WorkPhone,HomePhone" --disabled-password
 echo -e "${RootPassword}\n${RootPassword}" | passwd ${yiimpadmin}
