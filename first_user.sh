@@ -24,9 +24,9 @@ case $response in
 esac
 
 if [[ ("$UsingSSH" == "yes") ]]; then
-
-echo -e "Please open PuTTY Key Generator on your local machine and generate a new public key."
-read -e -p "Paste your generated key : " ssh_key
+clear
+echo -e "Please open PuTTY Key Generator on your local machine and generate a new public key.";
+read -e -p "Paste your generated key : " ssh_key;
 
   if [ -z "${yiimpadmin}" ]; then
   DEFAULT_yiimpadmin=yiimpadmin
