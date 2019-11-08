@@ -41,9 +41,9 @@ clear
   fi
 
   if [ -z "${ssh_key}" ]; then
-  DEFAULT_ssh_key=publickey
+  DEFAULT_ssh_key=
   input_box "Please open PuTTY Key Generator on your local machine and generate a new public key." \
-  "Public key.
+  "To paste your Public key use ctrl shift right click.
   \n\nPublic Key:" \
   ${DEFAULT_ssh_key} \
   ssh_key
