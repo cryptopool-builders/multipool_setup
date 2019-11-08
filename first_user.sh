@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 #####################################################
 # Source https://mailinabox.email/ https://github.com/mail-in-a-box/mailinabox
 # Updated by cryptopool.builders for crypto use...
@@ -45,8 +46,6 @@ RootPassword=$(openssl rand -base64 8 | tr -d "=+/")
 clear
 echo -e "Please open PuTTY Key Generator on your local machine and generate a new public key."
 read -e -p "Paste your generated key : " ssh_key
-
-clear
 echo -e " Adding new user and setting SSH key...$COL_RESET"
 
 sudo adduser ${yiimpadmin} --gecos "First Last,RoomNumber,WorkPhone,HomePhone" --disabled-password
