@@ -25,9 +25,10 @@ esac
 
 if [[ ("$UsingSSH" == "yes") ]]; then
 clear
-echo -e "Please open PuTTY Key Generator on your local machine and generate a new public key.";
-read -e -p "Paste your generated key : " ssh_key;
-
+if [[ -z "$ssh_key" ]]; then
+echo -e "Please open PuTTY Key Generator on your local machine and generate a new public key."
+read -e -p "Paste your generated key : " ssh_key
+fi
   if [ -z "${yiimpadmin}" ]; then
   DEFAULT_yiimpadmin=yiimpadmin
   input_box "New Account Name" \
