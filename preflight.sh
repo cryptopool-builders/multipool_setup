@@ -3,8 +3,12 @@
 # Updated by cryptopool.builders for crypto use...
 #####################################################
 
-if [ "`lsb_release -d | sed 's/.*:\s*//' | sed 's/16\.04\.[0-9]/16.04/' `" != "Ubuntu 16.04 LTS" ]; then
-echo "Ultimate Crypto-Server Setup Installer only supports being installed on Ubuntu 16.04, sorry. You are running:"
+if [ "`lsb_release -d | sed 's/.*:\s*//' | sed 's/18\.04\.[0-9]/18.04/' `" == "Ubuntu 18.04 LTS" ]; then
+  DISTRO=18
+elif [ "`lsb_release -d | sed 's/.*:\s*//' | sed 's/16\.04\.[0-9]/16.04/' `" != "Ubuntu 16.04 LTS" ]; then
+  DISTRO=16
+else
+echo "Ultimate Crypto-Server Setup Installer only supports being installed on Ubuntu 16.04 or Ubuntu 18.04 , sorry. You are running:"
 echo
 lsb_release -d | sed 's/.*:\s*//'
 echo
