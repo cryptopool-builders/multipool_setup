@@ -1,11 +1,32 @@
 #!/usr/bin/env bash
 
-
 #####################################################
 # This is the entry point for configuring the system.
 # Source https://mailinabox.email/ https://github.com/mail-in-a-box/mailinabox
 # Updated by cryptopool.builders for crypto use...
 #####################################################
+
+if [ -f /etc/multipool.conf ]; then
+	source /etc/functions.sh # load our functions
+	source /etc/multipool.conf
+	cd $HOME/multipool/install
+	source menu.sh
+	# Done.
+	echo
+	echo "-----------------------------------------------"
+	echo
+	echo Thank you for using the Ultimate Crypto-Server Setup Installer!
+	echo
+	echo To run this installer anytime simply type, multipool!
+	echo Donations for continued support of this script are welcomed at:
+	echo
+	echo BTC 3DvcaPT3Kio8Hgyw4ZA9y1feNnKZjH7Y21
+	echo BCH qrf2fhk2pfka5k649826z4683tuqehaq2sc65nfz3e
+	echo ETH 0x6A047e5410f433FDBF32D7fb118B6246E3b7C136
+	echo LTC MLS5pfgb7QMqBm3pmBvuJ7eRCRgwLV25Nz
+	cd ~
+
+else
 
 cd $HOME/multipool/install
 
@@ -83,6 +104,7 @@ STORAGE_ROOT='"${STORAGE_ROOT}"'
 PUBLIC_IP='"${PUBLIC_IP}"'
 PUBLIC_IPV6='"${PUBLIC_IPV6}"'
 DISTRO='"${DISTRO}"'
+FIRST_TIME_SETUP='"${FIRST_TIME_SETUP}"'
 PRIVATE_IP='"${PRIVATE_IP}"'' | sudo -E tee /etc/multipool.conf >/dev/null 2>&1
 
 # Start service configuration.
@@ -106,3 +128,4 @@ echo BCH qrf2fhk2pfka5k649826z4683tuqehaq2sc65nfz3e
 echo ETH 0x6A047e5410f433FDBF32D7fb118B6246E3b7C136
 echo LTC MLS5pfgb7QMqBm3pmBvuJ7eRCRgwLV25Nz
 cd ~
+fi
