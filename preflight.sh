@@ -5,15 +5,8 @@
 
 if [ "`lsb_release -d | sed 's/.*:\s*//' | sed 's/18\.04\.[0-9]/18.04/' `" == "Ubuntu 18.04 LTS" ]; then
   DISTRO=18
-elif [ "`lsb_release -d | sed 's/.*:\s*//' | sed 's/16\.04\.[0-9]/16.04/' `" != "Ubuntu 16.04 LTS" ]; then
+else [ "`lsb_release -d | sed 's/.*:\s*//' | sed 's/16\.04\.[0-9]/16.04/' `" != "Ubuntu 16.04 LTS" ];
   DISTRO=16
-else
-echo "Ultimate Crypto-Server Setup Installer only supports being installed on Ubuntu 16.04 or Ubuntu 18.04 , sorry. You are running:"
-echo
-lsb_release -d | sed 's/.*:\s*//'
-echo
-echo "We can't write scripts that run on every possible setup, sorry."
-exit
 fi
 
 TOTAL_PHYSICAL_MEM=$(head -n 1 /proc/meminfo | awk '{print $2}')
