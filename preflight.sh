@@ -5,7 +5,6 @@
 
 if [ "`lsb_release -d | sed 's/.*:\s*//' | sed 's/18\.04\.[0-9]/18.04/' `" == "Ubuntu 18.04 LTS" ]; then
   DISTRO=18
-  chmod g-w /etc /etc/default /usr
 else [ "`lsb_release -d | sed 's/.*:\s*//' | sed 's/16\.04\.[0-9]/16.04/' `" != "Ubuntu 16.04 LTS" ];
   DISTRO=16
 fi
@@ -70,9 +69,9 @@ fi
 
 # Set STORAGE_USER and STORAGE_ROOT to default values (crypto-data and /home/crypto-data), unless
 # we've already got those values from a previous run.
-if [ -z "${STORAGE_USER:-}" ]; then
-STORAGE_USER=$([[ -z "${DEFAULT_STORAGE_USER:-}" ]] && echo "crypto-data" || echo "$DEFAULT_STORAGE_USER")
+if [ -z "$STORAGE_USER" ]; then
+STORAGE_USER=$([[ -z "$DEFAULT_STORAGE_USER" ]] && echo "crypto-data" || echo "$DEFAULT_STORAGE_USER")
 fi
-if [ -z "${STORAGE_ROOT:-}" ]; then
-STORAGE_ROOT=$([[ -z "${DEFAULT_STORAGE_ROOT:-}" ]] && echo "/home/$STORAGE_USER" || echo "$DEFAULT_STORAGE_ROOT")
+if [ -z "$STORAGE_ROOT" ]; then
+STORAGE_ROOT=$([[ -z "$DEFAULT_STORAGE_ROOT" ]] && echo "/home/$STORAGE_USER" || echo "$DEFAULT_STORAGE_ROOT")
 fi
