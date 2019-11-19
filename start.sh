@@ -44,6 +44,7 @@ cd $HOME/multipool/install
 source functions.sh # load our functions
 # copy functions to /etc
 sudo cp -r functions.sh /etc/
+sudo cp -r editconf.py /usr/bin
 
 # Check system setup: Are we running as root on Ubuntu 16.04 on a
 # machine with enough memory?
