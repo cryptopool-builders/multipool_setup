@@ -2,6 +2,7 @@
 # Source https://mailinabox.email/ https://github.com/mail-in-a-box/mailinabox
 # Updated by cryptopool.builders for crypto use...
 #####################################################
+set -euo pipefail
 
 ESC_SEQ="\x1b["
  COL_RESET=$ESC_SEQ"39;49;00m"
@@ -51,6 +52,25 @@ function apt_get_quiet {
 function apt_install {
 		PACKAGES=$@
 		apt_get_quiet install $PACKAGES
+}
+
+function apt_add_repository_to_unattended_upgrades {
+	if [ -f /etc/apt/apt.conf.d/50unattended-upgrades ]; then
+		if ! grep -q "$1" /etc/apt/apt.conf.d/50unattended-upgrades; then
+			sed -i "/Allowed-Origins/a \
+	    \"$1\";" /etc/apt/apt.conf.d/50unattended-upgrades
+		fi
+	fi
+}
+
+function get_default_hostname {
+	# Guess the machine's hostname. It should be a fully qualified
+	# domain name suitable for DNS. None of these calls may provide
+	# the right value, but it's the best guess we can make.
+	set -- $(hostname --fqdn      2>/dev/null ||
+                 hostname --all-fqdns 2>/dev/null ||
+                 hostname             2>/dev/null)
+	printf '%s\n' "$1" # return this value
 }
 
 function ufw_allow {
