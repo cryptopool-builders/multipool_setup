@@ -26,7 +26,7 @@ esac
 if [[ ("$UsingSSH" == "yes") ]]; then
 clear
 
-  if [ -z "${yiimpadmin}" ]; then
+  if [ -z "${yiimpadmin:-}" ]; then
   DEFAULT_yiimpadmin=yiimpadmin
   input_box "New Account Name" \
   "Please enter your desired user name.
@@ -40,7 +40,7 @@ clear
   fi
   fi
 
-  if [ -z "${ssh_key}" ]; then
+  if [ -z "${ssh_key:-}" ]; then
   DEFAULT_ssh_key=PublicKey
   input_box "Please open PuTTY Key Generator on your local machine and generate a new public key." \
   "To paste your Public key use ctrl shift right click.
@@ -100,7 +100,7 @@ exit 0
 
 fi
 
-if [ -z "${yiimpadmin}" ]; then
+if [ -z "${yiimpadmin:-}" ]; then
 DEFAULT_yiimpadmin=yiimpadmin
 input_box "New Account Name" \
 "Please enter your desired user name.
@@ -114,7 +114,7 @@ exit
 fi
 fi
 
-if [ -z "${RootPassword}" ]; then
+if [ -z "${RootPassword:-}" ]; then
 DEFAULT_RootPassword=$(openssl rand -base64 8 | tr -d "=+/")
 input_box "User Password" \
 "Enter your new user password or use this randomly system generated one.

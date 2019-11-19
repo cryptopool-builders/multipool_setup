@@ -5,6 +5,7 @@
 
 if [ "`lsb_release -d | sed 's/.*:\s*//' | sed 's/18\.04\.[0-9]/18.04/' `" == "Ubuntu 18.04 LTS" ]; then
   DISTRO=18
+  chmod g-w /etc /etc/default /usr
 else [ "`lsb_release -d | sed 's/.*:\s*//' | sed 's/16\.04\.[0-9]/16.04/' `" != "Ubuntu 16.04 LTS" ];
   DISTRO=16
 fi
@@ -26,6 +27,7 @@ fi
 
 # Check swap
 echo Checking if swap space is needed and if so creating...
+
 SWAP_MOUNTED=$(cat /proc/swaps | tail -n+2)
 SWAP_IN_FSTAB=$(grep "swap" /etc/fstab)
 ROOT_IS_BTRFS=$(grep "\/ .*btrfs" /proc/mounts)
