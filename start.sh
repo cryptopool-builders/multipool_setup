@@ -45,6 +45,7 @@ source functions.sh # load our functions
 # copy functions to /etc
 sudo cp -r functions.sh /etc/
 sudo cp -r editconf.py /usr/bin
+sudo chmod +x /usr/bin/editconf.py
 
 # Check system setup: Are we running as root on Ubuntu 16.04 on a
 # machine with enough memory?

@@ -12,7 +12,6 @@ message_box "Ultimate Crypto-Server Setup Installer" \
 \n\nRunning any application as root is a serious security risk.
 \n\nTherefore we make you create a user account :)"
 
-
 dialog --title "Create New User With SSH Key" \
 --yesno "Do you want to create your new user with SSH key login?
 Selecting no will create user with password login only." 7 60
@@ -23,6 +22,7 @@ case $response in
    255) echo "[ESC] key pressed.";;
 esac
 
+# If Using SSH Key Login
 if [[ ("$UsingSSH" == "yes") ]]; then
 clear
 
@@ -57,7 +57,6 @@ clear
 # create random user password
 RootPassword=$(openssl rand -base64 8 | tr -d "=+/")
 
-# prompt for key.
 clear
 echo -e "Adding new user and setting SSH key...$COL_RESET"
 
@@ -72,9 +71,6 @@ chmod 700 /home/${yiimpadmin}/.ssh
 chmod 644 /home/${yiimpadmin}/.ssh/authorized_keys
 authkeys=/home/${yiimpadmin}/.ssh/authorized_keys
 echo "$ssh_key" > "$authkeys"
-
-# disabling root login and password log in
-
 
 # enabling multipool command
 echo '# yiimp
@@ -93,12 +89,15 @@ cd ~
 sudo rm -r multipool
 sudo setfacl -m u:${yiimpadmin}:rwx /home/${yiimpadmin}/multipool
 
+
+
 clear
 echo "New User is installed make sure you saved your private key..."
 echo -e "$RED Please reboot system and log in as the new user and type$COL_RESET $GREEN multipool$COL_RESET $RED to continue setup...$COL_RESET"
 exit 0
-
 fi
+
+# New User Password Login
 
 if [ -z "${yiimpadmin:-}" ]; then
 DEFAULT_yiimpadmin=yiimpadmin
