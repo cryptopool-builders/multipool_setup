@@ -5,7 +5,7 @@
 
 source /etc/functions.sh
 
-RESULT=$(dialog --stdout --nocancel --default-item 1 --title "Ultimate Crypto-Server Setup Installer v2.25" --menu "Choose one" -1 60 16 \
+RESULT=$(dialog --stdout --nocancel --default-item 1 --title "Ultimate Crypto-Server Setup Installer v2.26" --menu "Choose one" -1 60 16 \
 ' ' "- YiiMP Server Install -" \
 1 "YiiMP Single Server" \
 2 "YiiMP Multi Server" \
