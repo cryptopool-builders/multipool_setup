@@ -39,5 +39,5 @@ if [ "${TAG}" != `git describe --tags` ]; then
 fi
 
 # Start setup script.
-cd $HOME/multipool/yiimp_upgrade
+cd $HOME/multipool/yiimp_upgrade || exit
 source start.sh
