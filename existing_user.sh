@@ -7,11 +7,6 @@
 source /etc/functions.sh
 cd ~/multipool/install
 clear
-# Welcome
-message_box "Ultimate Crypto-Server Setup Installer" \
-"Hello and thanks for using the Ultimate Crypto-Server Setup Installer!
-\n\nInstallation for the most part is fully automated. In most cases any user responses that are needed are asked prior to the installation.
-\n\nNOTE: You should only install this on a brand new Ubuntu 16.04 or Ubuntu 18.04 installation."
 
 # Get logged in user name
 whoami=`whoami`
@@ -51,10 +46,8 @@ DISTRO='"${DISTRO}"'
 FIRST_TIME_SETUP='"${FIRST_TIME_SETUP}"'
 PRIVATE_IP='"${PRIVATE_IP}"'' | sudo -E tee /etc/multipool.conf >/dev/null 2>&1
 
-sudo cp -r ~/multipool /home/${whoami}/
 cd ~
 sudo setfacl -m u:${whoami}:rwx /home/${whoami}/multipool
-sudo rm -r $HOME/multipool
 clear
 echo -e " Your User has been modified for multipool support..."
 echo -e "$RED You must reboot the system for the new permissions to update and type$COL_RESET $GREEN multipool$COL_RESET $RED to continue setup...$COL_RESET"
