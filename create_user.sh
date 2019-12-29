@@ -90,11 +90,8 @@ if [[ ("$UsingSSH" == "yes") ]]; then
   ' | sudo -E tee /usr/bin/multipool >/dev/null 2>&1
   sudo chmod +x /usr/bin/multipool
 
-  sudo cp -r ~/multipool /home/${yiimpadmin}/
-  cd ~
-  sudo setfacl -m u:${yiimpadmin}:rwx /home/${yiimpadmin}/multipool
-
   # Check required files and set global variables
+  cd $HOME/multipool/install
   source pre_setup.sh
 
   # Create the STORAGE_USER and STORAGE_ROOT directory if they don't already exist.
@@ -112,9 +109,11 @@ if [[ ("$UsingSSH" == "yes") ]]; then
   PUBLIC_IP='"${PUBLIC_IP}"'
   PUBLIC_IPV6='"${PUBLIC_IPV6}"'
   DISTRO='"${DISTRO}"'
-  FIRST_TIME_SETUP='"${FIRST_TIME_SETUP}"'
   PRIVATE_IP='"${PRIVATE_IP}"'' | sudo -E tee /etc/multipool.conf >/dev/null 2>&1
 
+  sudo cp -r ~/multipool /home/${yiimpadmin}/
+  cd ~
+  sudo setfacl -m u:${yiimpadmin}:rwx /home/${yiimpadmin}/multipool
   sudo rm -r multipool
   clear
   echo "New User is installed make sure you saved your private key..."
@@ -187,11 +186,8 @@ bash start.sh
 ' | sudo -E tee /usr/bin/multipool >/dev/null 2>&1
 sudo chmod +x /usr/bin/multipool
 
-sudo cp -r ~/multipool /home/${yiimpadmin}/
-cd ~
-sudo setfacl -m u:${yiimpadmin}:rwx /home/${yiimpadmin}/multipool
-
 # Check required files and set global variables
+cd $HOME/multipool/install
 source pre_setup.sh
 
 # Create the STORAGE_USER and STORAGE_ROOT directory if they don't already exist.
@@ -209,9 +205,12 @@ STORAGE_ROOT='"${STORAGE_ROOT}"'
 PUBLIC_IP='"${PUBLIC_IP}"'
 PUBLIC_IPV6='"${PUBLIC_IPV6}"'
 DISTRO='"${DISTRO}"'
-FIRST_TIME_SETUP='"${FIRST_TIME_SETUP}"'
 PRIVATE_IP='"${PRIVATE_IP}"'' | sudo -E tee /etc/multipool.conf >/dev/null 2>&1
 
+sudo cp -r ~/multipool /home/${yiimpadmin}/
+cd ~
+sudo setfacl -m u:${yiimpadmin}:rwx /home/${yiimpadmin}/multipool
+sudo rm -r multipool
 sudo rm -r multipool
 clear
 echo "New User is installed..."

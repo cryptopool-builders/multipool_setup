@@ -29,11 +29,8 @@ bash start.sh
 ' | sudo -E tee /usr/bin/multipool >/dev/null 2>&1
 sudo chmod +x /usr/bin/multipool
 
-sudo cp -r ~/multipool /home/${whoami}/
-cd ~
-sudo setfacl -m u:${whoami}:rwx /home/${whoami}/multipool
-
-# Ask the user the intial questions
+# Check required files and set global variables
+cd $HOME/multipool/install
 source pre_setup.sh
 
 # Create the STORAGE_USER and STORAGE_ROOT directory if they don't already exist.
@@ -54,6 +51,9 @@ DISTRO='"${DISTRO}"'
 FIRST_TIME_SETUP='"${FIRST_TIME_SETUP}"'
 PRIVATE_IP='"${PRIVATE_IP}"'' | sudo -E tee /etc/multipool.conf >/dev/null 2>&1
 
+sudo cp -r ~/multipool /home/${whoami}/
+cd ~
+sudo setfacl -m u:${whoami}:rwx /home/${whoami}/multipool
 sudo rm -r multipool
 clear
 echo -e " Your User has been modified for multipool support..."
