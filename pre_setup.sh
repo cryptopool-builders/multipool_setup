@@ -5,13 +5,7 @@
 
 source /etc/functions.sh
 clear
-echo Checking for required setup files...
-
-# we double and triple check for required files
-if [ ! -f /usr/bin/dialog ] || [ ! -f /usr/bin/python3 ] || [ ! -f /usr/bin/pip3 ] || [ ! -f /usr/bin/acl ] || [ ! -f /usr/bin/nano ]; then
-sudo apt-get -q -q update
-apt_get_quiet install dialog python3 python3-pip acl nano apt-transport-https || exit 1
-fi
+echo -e " Setting our global variables..."
 
 # If the machine is behind a NAT, inside a VM, etc., it may not know
 # its IP address on the public network / the Internet. Ask the Internet

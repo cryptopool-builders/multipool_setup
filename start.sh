@@ -52,7 +52,6 @@ if [[ ("$FIRST_TIME_SETUP" == "1") ]]; then
 
   #check for user
   echo -e " Installing needed packages for setup to continue...$COL_RESET"
-
   sudo apt-get -q -q update
   apt_get_quiet install dialog python3 python3-pip acl nano git apt-transport-https || exit 1
 

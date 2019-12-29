@@ -64,6 +64,7 @@ if [[ ("$UsingSSH" == "yes") ]]; then
   # create random user password
   RootPassword=$(openssl rand -base64 8 | tr -d "=+/")
   clear
+
   # Add user
   echo -e "Adding new user and setting SSH key...$COL_RESET"
   sudo adduser ${yiimpadmin} --gecos "First Last,RoomNumber,WorkPhone,HomePhone" --disabled-password
@@ -114,7 +115,7 @@ if [[ ("$UsingSSH" == "yes") ]]; then
   sudo cp -r ~/multipool /home/${yiimpadmin}/
   cd ~
   sudo setfacl -m u:${yiimpadmin}:rwx /home/${yiimpadmin}/multipool
-  sudo rm -r multipool
+  sudo rm -r $HOME/multipool
   clear
   echo "New User is installed make sure you saved your private key..."
   echo -e "$RED Please reboot system and log in as the new user and type$COL_RESET $GREEN multipool$COL_RESET $RED to continue setup...$COL_RESET"
@@ -210,8 +211,7 @@ PRIVATE_IP='"${PRIVATE_IP}"'' | sudo -E tee /etc/multipool.conf >/dev/null 2>&1
 sudo cp -r ~/multipool /home/${yiimpadmin}/
 cd ~
 sudo setfacl -m u:${yiimpadmin}:rwx /home/${yiimpadmin}/multipool
-sudo rm -r multipool
-sudo rm -r multipool
+sudo rm -r $HOME/multipool
 clear
 echo "New User is installed..."
 echo -e "$RED Please reboot system and log in as the new user and type$COL_RESET $GREEN multipool$COL_RESET $RED to continue setup...$COL_RESET"
