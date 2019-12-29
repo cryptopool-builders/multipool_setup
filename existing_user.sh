@@ -31,7 +31,6 @@ sudo chmod +x /usr/bin/multipool
 
 sudo cp -r ~/multipool /home/${whoami}/
 cd ~
-sudo rm -r multipool
 sudo setfacl -m u:${whoami}:rwx /home/${whoami}/multipool
 
 # Ask the user the intial questions
@@ -55,6 +54,7 @@ DISTRO='"${DISTRO}"'
 FIRST_TIME_SETUP='"${FIRST_TIME_SETUP}"'
 PRIVATE_IP='"${PRIVATE_IP}"'' | sudo -E tee /etc/multipool.conf >/dev/null 2>&1
 
+sudo rm -r multipool
 clear
 echo -e " Your User has been modified for multipool support..."
 echo -e "$RED You must reboot the system for the new permissions to update and type$COL_RESET $GREEN multipool$COL_RESET $RED to continue setup...$COL_RESET"

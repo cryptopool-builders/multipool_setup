@@ -92,7 +92,6 @@ if [[ ("$UsingSSH" == "yes") ]]; then
 
   sudo cp -r ~/multipool /home/${yiimpadmin}/
   cd ~
-  sudo rm -r multipool
   sudo setfacl -m u:${yiimpadmin}:rwx /home/${yiimpadmin}/multipool
 
   # Check required files and set global variables
@@ -116,7 +115,7 @@ if [[ ("$UsingSSH" == "yes") ]]; then
   FIRST_TIME_SETUP='"${FIRST_TIME_SETUP}"'
   PRIVATE_IP='"${PRIVATE_IP}"'' | sudo -E tee /etc/multipool.conf >/dev/null 2>&1
 
-
+  sudo rm -r multipool
   clear
   echo "New User is installed make sure you saved your private key..."
   echo -e "$RED Please reboot system and log in as the new user and type$COL_RESET $GREEN multipool$COL_RESET $RED to continue setup...$COL_RESET"
@@ -190,7 +189,6 @@ sudo chmod +x /usr/bin/multipool
 
 sudo cp -r ~/multipool /home/${yiimpadmin}/
 cd ~
-sudo rm -r multipool
 sudo setfacl -m u:${yiimpadmin}:rwx /home/${yiimpadmin}/multipool
 
 # Check required files and set global variables
@@ -214,6 +212,7 @@ DISTRO='"${DISTRO}"'
 FIRST_TIME_SETUP='"${FIRST_TIME_SETUP}"'
 PRIVATE_IP='"${PRIVATE_IP}"'' | sudo -E tee /etc/multipool.conf >/dev/null 2>&1
 
+sudo rm -r multipool
 clear
 echo "New User is installed..."
 echo -e "$RED Please reboot system and log in as the new user and type$COL_RESET $GREEN multipool$COL_RESET $RED to continue setup...$COL_RESET"
