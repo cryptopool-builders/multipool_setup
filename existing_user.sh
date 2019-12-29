@@ -58,4 +58,4 @@ sudo rm -r $HOME/multipool
 clear
 echo -e " Your User has been modified for multipool support..."
 echo -e "$RED You must reboot the system for the new permissions to update and type$COL_RESET $GREEN multipool$COL_RESET $RED to continue setup...$COL_RESET"
-exit 0;;
+exit 0

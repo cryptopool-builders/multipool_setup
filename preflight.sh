@@ -54,7 +54,7 @@ then
     fi
 # Check if swap is mounted then activate on boot
   if swapon -s | grep -q "\/swapfile"; then
-    echo "/swapfile  none swap sw 0  0" >> /etc/fstab
+    echo "/swapfile  none swap sw 0  0" >> sudo /etc/fstab
   else
     echo "ERROR: Swap allocation failed"
   fi
