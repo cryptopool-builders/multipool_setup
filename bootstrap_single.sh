@@ -8,7 +8,7 @@
 #########################################################
 
 if [ -z "${TAG}" ]; then
-	TAG=v1.80
+	TAG=v1.81
 fi
 
 # Clone the MultiPool repository if it doesn't exist.

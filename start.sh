@@ -18,7 +18,7 @@ if [ -f /etc/multipool.conf ]; then
 	export LC_TYPE=en_US.UTF-8
 	# Fix so line drawing characters are shown correctly in Putty on Windows. See #744.
 	export NCURSES_NO_UTF8_ACS=1
-	source /etc/functions.sh # load our functions
+	source /etc/functions.sh 
 	source /etc/multipool.conf
 	cd $HOME/multipool/install
 	source menu.sh
