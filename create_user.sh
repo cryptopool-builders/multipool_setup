@@ -172,7 +172,7 @@ clear
 echo -e " Adding new user and password...$COL_RESET"
 
 sudo adduser ${yiimpadmin} --gecos "First Last,RoomNumber,WorkPhone,HomePhone" --disabled-password
-echo -e "${RootPassword}\n${RootPassword}" | passwd ${yiimpadmin}
+echo -e ""${RootPassword}"\n"${RootPassword}"" | passwd ${yiimpadmin}
 sudo usermod -aG sudo ${yiimpadmin}
 
 # enabling multipool command
